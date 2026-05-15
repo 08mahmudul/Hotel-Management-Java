@@ -1,0 +1,28 @@
+# Compiled output
+bin/
+*.class
+*.jar
+*.war
+
+# Build tools
+*.gradle
+build/
+out/
+
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Dependency cache
+.gradle/
