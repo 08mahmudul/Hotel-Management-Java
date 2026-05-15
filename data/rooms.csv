@@ -1,0 +1,11 @@
+roomId,roomNumber,roomType,pricePerNight,isAvailable,extraData,createdAt
+R-001,101,STANDARD,1500.0,true,Fan|TV|Attached Bathroom,2024-01-01
+R-002,102,STANDARD,1500.0,true,Fan|TV|Attached Bathroom,2024-01-01
+R-003,103,STANDARD,1800.0,false,Fan|TV|Attached Bathroom|WiFi,2024-01-01
+R-004,104,STANDARD,1800.0,true,Fan|TV|Attached Bathroom|WiFi,2024-01-01
+R-005,201,DELUXE,3500.0,true,AC=true|Minibar=true,2024-01-01
+R-006,202,DELUXE,3500.0,false,AC=true|Minibar=false,2024-01-01
+R-007,203,DELUXE,4000.0,true,AC=true|Minibar=true,2024-01-01
+R-008,301,SUITE,8000.0,true,Floor=3|Jacuzzi=true|MaxOcc=4,2024-01-01
+R-009,302,SUITE,9000.0,false,Floor=3|Jacuzzi=true|MaxOcc=6,2024-01-01
+R-010,303,SUITE,10000.0,true,Floor=4|Jacuzzi=true|MaxOcc=8,2024-01-01

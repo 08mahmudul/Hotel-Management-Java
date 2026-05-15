@@ -1,0 +1,7 @@
+guestId,fullName,phone,nidOrPassport,address,createdAt
+G-001,Rahim Uddin,01711234567,1234567890123,Dhaka Bangladesh,2024-01-05
+G-002,Karim Ahmed,01819876543,9876543210987,Chittagong Bangladesh,2024-01-06
+G-003,Fatema Begum,01612345678,1122334455667,Sylhet Bangladesh,2024-01-07
+G-004,Nasrin Akter,01511234567,7766554433221,Rajshahi Bangladesh,2024-01-08
+G-005,Jamal Hossain,01312345678,5544332211009,Khulna Bangladesh,2024-01-09
+G-006,Riya Chakraborty,01412345678,3322114455667,Barishal Bangladesh,2024-01-10

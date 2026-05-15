@@ -353,28 +353,28 @@ Build the visual application. Wire each panel to the service layer. Take it one 
 
 **File:** `com/hotel/ui/MainFrame.java`
 
-- [ ] Create `class MainFrame extends JFrame`
-- [ ] Set title: `"Hotel Management System"`
-- [ ] Set size: `1100 × 700`, center on screen
-- [ ] Set `defaultCloseOperation` to `EXIT_ON_CLOSE`
-- [ ] Use `BorderLayout`
+- [x] Create `class MainFrame extends JFrame`
+- [x] Set title: `"Hotel Management System"`
+- [x] Set size: `1100 × 700`, center on screen
+- [x] Set `defaultCloseOperation` to `EXIT_ON_CLOSE`
+- [x] Use `BorderLayout`
 
 **Header (NORTH):**
-- [ ] Create `JPanel` with system name label + current date label
+- [x] Create `JPanel` with system name label + current date label
 
 **Sidebar (WEST):**
-- [ ] Create `JPanel` with `BoxLayout` (Y_AXIS)
-- [ ] Add buttons: Dashboard, Room Management, Guest Management, Booking Management
-- [ ] Fixed width: ~180px
+- [x] Create `JPanel` with `BoxLayout` (Y_AXIS)
+- [x] Add buttons: Dashboard, Room Management, Guest Management, Booking Management
+- [x] Fixed width: ~180px
 
 **Center (CENTER):**
-- [ ] Create `JPanel` with `CardLayout`
-- [ ] Add all management panels with string keys
-- [ ] Wire each sidebar button to switch the active card
+- [x] Create `JPanel` with `CardLayout`
+- [x] Add all management panels with string keys
+- [x] Wire each sidebar button to switch the active card
 
 **Status bar (SOUTH):**
-- [ ] Create `JLabel` for displaying last action result
-- [ ] Add `public void setStatus(String message, boolean isError)` — green for success, red for error
+- [x] Create `JLabel` for displaying last action result
+- [x] Add `public void setStatus(String message, boolean isError)` — green for success, red for error
 
 ---
 
@@ -382,15 +382,15 @@ Build the visual application. Wire each panel to the service layer. Take it one 
 
 **File:** `com/hotel/ui/panels/DashboardPanel.java`
 
-- [ ] Create `class DashboardPanel extends JPanel`
-- [ ] Use `GridLayout(2, 2)` or `FlowLayout` for metric cards
-- [ ] Create four stat cards (each a bordered `JPanel` with a title label + number label):
-  - [ ] **Total Rooms** — `roomService.getAll().size()`
-  - [ ] **Available Rooms** — count where `isAvailable == true`
-  - [ ] **Total Guests** — `guestService.getAll().size()`
-  - [ ] **Active Bookings** — count where `status.equals("ACTIVE")`
-- [ ] Add method: `public void refresh()` — reloads all four counts
-- [ ] Call `refresh()` every time the dashboard card is shown
+- [x] Create `class DashboardPanel extends JPanel`
+- [x] Use `GridLayout(2, 2)` or `FlowLayout` for metric cards
+- [x] Create four stat cards (each a bordered `JPanel` with a title label + number label):
+  - [x] **Total Rooms** — `roomService.getAll().size()`
+  - [x] **Available Rooms** — count where `isAvailable == true`
+  - [x] **Total Guests** — `guestService.getAll().size()`
+  - [x] **Active Bookings** — count where `status.equals("ACTIVE")`
+- [x] Add method: `public void refresh()` — reloads all four counts
+- [x] Call `refresh()` every time the dashboard card is shown
 
 ---
 
@@ -399,28 +399,28 @@ Build the visual application. Wire each panel to the service layer. Take it one 
 **File:** `com/hotel/ui/panels/RoomPanel.java`
 
 **Form section (top):**
-- [ ] `JTextField` for Room Number
-- [ ] `JComboBox` for Type: Standard / Deluxe / Suite
-- [ ] `JTextField` for Price Per Night
-- [ ] Dynamic section — shown/hidden based on type selection:
+- [x] `JTextField` for Room Number
+- [x] `JComboBox` for Type: Standard / Deluxe / Suite
+- [x] `JTextField` for Price Per Night
+- [x] Dynamic section — shown/hidden based on type selection:
   - Standard: `JTextField` for Amenities
   - Deluxe: `JCheckBox` for AC, `JCheckBox` for Minibar
   - Suite: `JTextField` for Floor Number, `JCheckBox` for Jacuzzi, `JTextField` for Max Occupancy
-- [ ] Add `ItemListener` to type dropdown to show/hide dynamic fields
-- [ ] Buttons: **Add Room** and **Clear**
-- [ ] Status label below form (red/green text)
+- [x] Add `ItemListener` to type dropdown to show/hide dynamic fields
+- [x] Buttons: **Add Room** and **Clear**
+- [x] Status label below form (red/green text)
 
 **Table section (bottom):**
-- [ ] `JTable` with columns: Room ID · Room No · Type · Price · Status · Edit · Delete
-- [ ] Load from `roomService.getAll()` on panel open
-- [ ] Filter controls: type dropdown + availability dropdown
-- [ ] **Edit** button per row: fills form, changes button to **Save Changes**, shows **Cancel Edit**
-- [ ] **Delete** button per row: shows confirmation dialog, calls `roomService.delete()`
+- [x] `JTable` with columns: Room ID · Room No · Type · Price · Status · Edit · Delete
+- [x] Load from `roomService.getAll()` on panel open
+- [x] Filter controls: type dropdown + availability dropdown
+- [x] **Edit** button per row: fills form, changes button to **Save Changes**, shows **Cancel Edit**
+- [x] **Delete** button per row: shows confirmation dialog, calls `roomService.delete()`
 
 **Wire actions:**
-- [ ] Add Room → `roomService.add()` → refresh table → clear form → show success
-- [ ] Save Changes → `roomService.update()` → refresh table → reset to Add mode
-- [ ] Filter change → re-render table with filtered data
+- [x] Add Room → `roomService.add()` → refresh table → clear form → show success
+- [x] Save Changes → `roomService.update()` → refresh table → reset to Add mode
+- [x] Filter change → re-render table with filtered data
 
 ---
 
@@ -429,21 +429,21 @@ Build the visual application. Wire each panel to the service layer. Take it one 
 **File:** `com/hotel/ui/panels/GuestPanel.java`
 
 **Form section:**
-- [ ] `JTextField` for Full Name
-- [ ] `JTextField` for Phone
-- [ ] `JTextField` for NID / Passport
-- [ ] `JTextField` for Address (optional)
-- [ ] Buttons: **Register Guest** and **Clear**
-- [ ] Status label
+- [x] `JTextField` for Full Name
+- [x] `JTextField` for Phone
+- [x] `JTextField` for NID / Passport
+- [x] `JTextField` for Address (optional)
+- [x] Buttons: **Register Guest** and **Clear**
+- [x] Status label
 
 **Table section:**
-- [ ] Columns: Guest ID · Name · Phone · NID · Address · Registered Date · Edit · Delete
-- [ ] **Edit** per row: pre-fill form (NID field is read-only in edit mode)
-- [ ] **Delete** per row: check for active bookings, confirm, delete
+- [x] Columns: Guest ID · Name · Phone · NID · Address · Registered Date · Edit · Delete
+- [x] **Edit** per row: pre-fill form (NID field is read-only in edit mode)
+- [x] **Delete** per row: check for active bookings, confirm, delete
 
 **Wire actions:**
-- [ ] Register → `guestService.add()` → refresh → clear
-- [ ] Save Changes → `guestService.update()` → refresh
+- [x] Register → `guestService.add()` → refresh → clear
+- [x] Save Changes → `guestService.update()` → refresh
 
 ---
 
@@ -452,25 +452,25 @@ Build the visual application. Wire each panel to the service layer. Take it one 
 **File:** `com/hotel/ui/panels/BookingPanel.java`
 
 **Form section:**
-- [ ] `JComboBox` for Guest — populated from `guestService.getAll()`, shows `Name (G-XXX)`
-- [ ] `JComboBox` for Room — populated from `roomService.getAll()` filtered to `isAvailable == true`
-- [ ] `JTextField` for Check-in Date (hint: `YYYY-MM-DD`)
-- [ ] `JTextField` for Check-out Date
-- [ ] Read-only `JLabel` showing calculated nights + total bill (updates on date field focus-lost)
-- [ ] Button: **Confirm Booking**
-- [ ] Status label
+- [x] `JComboBox` for Guest — populated from `guestService.getAll()`, shows `Name (G-XXX)`
+- [x] `JComboBox` for Room — populated from `roomService.getAll()` filtered to `isAvailable == true`
+- [x] `JTextField` for Check-in Date (hint: `YYYY-MM-DD`)
+- [x] `JTextField` for Check-out Date
+- [x] Read-only `JLabel` showing calculated nights + total bill (updates on date field focus-lost)
+- [x] Button: **Confirm Booking**
+- [x] Status label
 
 **Table section:**
-- [ ] Columns: Booking ID · Guest · Room · Check-in · Check-out · Nights · Total Bill · Status · Cancel
-- [ ] Filter: Status dropdown (All / Active / Cancelled)
-- [ ] **Cancel** button per row — only enabled for `ACTIVE` rows
+- [x] Columns: Booking ID · Guest · Room · Check-in · Check-out · Nights · Total Bill · Status · Cancel
+- [x] Filter: Status dropdown (All / Active / Cancelled)
+- [x] **Cancel** button per row — only enabled for `ACTIVE` rows
   - Shows confirmation dialog
   - Calls `bookingService.cancelBooking()`
   - Refreshes table and room dropdown
 
 **Wire actions:**
-- [ ] Confirm → validate → `bookingService.add()` → refresh table → refresh room dropdown → clear form
-- [ ] Panel shown → refresh room dropdown (picks up any rooms freed by cancellations)
+- [x] Confirm → validate → `bookingService.add()` → refresh table → refresh room dropdown → clear form
+- [x] Panel shown → refresh room dropdown (picks up any rooms freed by cancellations)
 
 > ⚠ The room dropdown must refresh every time the Booking panel is opened. Rooms cancelled in another session would not appear otherwise.
 
@@ -503,11 +503,11 @@ Wire everything together, run end-to-end tests, and polish.
 
 **File:** `com/hotel/Main.java`
 
-- [ ] Create `public static void main(String[] args)`
-- [ ] Call `FileHandler.ensureFileExists()` for all three CSV files with their headers
-- [ ] Wrap in `SwingUtilities.invokeLater()`:
-  - [ ] Instantiate `MainFrame`
-  - [ ] Call `frame.setVisible(true)`
+- [x] Create `public static void main(String[] args)`
+- [x] Call `FileHandler.ensureFileExists()` for all three CSV files with their headers
+- [x] Wrap in `SwingUtilities.invokeLater()`:
+  - [x] Instantiate `MainFrame`
+  - [x] Call `frame.setVisible(true)`
 
 ---
 
