@@ -160,29 +160,29 @@ Connect the model to CSV files. After this phase, data survives application rest
 
 **File:** `com/hotel/util/FileHandler.java`
 
-- [ ] Create `class FileHandler`
+- [x] Create `class FileHandler`
 
 **Method — readAll:**
-- [ ] `public static List<String[]> readAll(String filePath) throws FileReadException`
-- [ ] Open with `BufferedReader`
-- [ ] Skip the first line (header)
-- [ ] For each remaining line: split by `,` and add the array to the list
-- [ ] Return the list
-- [ ] Catch `IOException`, throw `FileReadException` with a clear message
-- [ ] Use try-with-resources to ensure the reader is always closed
+- [x] `public static List<String[]> readAll(String filePath) throws FileReadException`
+- [x] Open with `BufferedReader`
+- [x] Skip the first line (header)
+- [x] For each remaining line: split by `,` and add the array to the list
+- [x] Return the list
+- [x] Catch `IOException`, throw `FileReadException` with a clear message
+- [x] Use try-with-resources to ensure the reader is always closed
 
 **Method — writeAll:**
-- [ ] `public static void writeAll(String filePath, String header, List<String> rows) throws FileWriteException`
-- [ ] Open with `BufferedWriter`
-- [ ] Write the header line first
-- [ ] Write each row followed by a newline
-- [ ] Catch `IOException`, throw `FileWriteException`
-- [ ] Use try-with-resources
+- [x] `public static void writeAll(String filePath, String header, List<String> rows) throws FileWriteException`
+- [x] Open with `BufferedWriter`
+- [x] Write the header line first
+- [x] Write each row followed by a newline
+- [x] Catch `IOException`, throw `FileWriteException`
+- [x] Use try-with-resources
 
 **Method — ensureFileExists:**
-- [ ] `public static void ensureFileExists(String filePath, String header)`
-- [ ] Create the `/data/` directory if it does not exist (`File.mkdirs()`)
-- [ ] If the file does not exist, create it and write the header as the first line
+- [x] `public static void ensureFileExists(String filePath, String header)`
+- [x] Create the `/data/` directory if it does not exist (`File.mkdirs()`)
+- [x] If the file does not exist, create it and write the header as the first line
 
 → **Test:** Call `ensureFileExists` twice on the same file — should not duplicate the header.
 
@@ -192,19 +192,19 @@ Connect the model to CSV files. After this phase, data survives application rest
 
 **File:** `com/hotel/repository/RoomRepository.java`
 
-- [ ] Create `class RoomRepository`
-- [ ] Define constant: `FILE_PATH = "data/rooms.csv"`
-- [ ] Define constant: `HEADER = "roomId,roomNumber,roomType,pricePerNight,isAvailable,extraData,createdAt"`
+- [x] Create `class RoomRepository`
+- [x] Define constant: `FILE_PATH = "data/rooms.csv"`
+- [x] Define constant: `HEADER = "roomId,roomNumber,roomType,pricePerNight,isAvailable,extraData,createdAt"`
 
 **Methods to implement:**
-- [ ] `void save(Room room)` — append one new row
-- [ ] `List<Room> findAll()` — read all rows, construct `Room` objects
-  - [ ] Check `roomType` field to decide which subclass to instantiate (`STANDARD` → `StandardRoom`, etc.)
-  - [ ] Parse each field into the correct type (String, double, boolean, int)
-- [ ] `Room findById(String id)` — call `findAll()`, iterate, return match or `null`
-- [ ] `void update(Room room)` — `findAll()` → replace matching row → `writeAll()`
-- [ ] `void deleteById(String id)` — `findAll()` → remove matching row → `writeAll()`
-- [ ] `boolean existsByRoomNumber(String roomNumber)` — iterate `findAll()`, check match
+- [x] `void save(Room room)` — append one new row
+- [x] `List<Room> findAll()` — read all rows, construct `Room` objects
+  - [x] Check `roomType` field to decide which subclass to instantiate (`STANDARD` → `StandardRoom`, etc.)
+  - [x] Parse each field into the correct type (String, double, boolean, int)
+- [x] `Room findById(String id)` — call `findAll()`, iterate, return match or `null`
+- [x] `void update(Room room)` — `findAll()` → replace matching row → `writeAll()`
+- [x] `void deleteById(String id)` — `findAll()` → remove matching row → `writeAll()`
+- [x] `boolean existsByRoomNumber(String roomNumber)` — iterate `findAll()`, check match
 
 → **Test:** Save a room, call `findAll()` — verify it appears. Delete it — verify it's gone. Reopen application — verify data persisted.
 
@@ -214,10 +214,10 @@ Connect the model to CSV files. After this phase, data survives application rest
 
 **File:** `com/hotel/repository/GuestRepository.java`
 
-- [ ] Create `class GuestRepository`
-- [ ] Define `FILE_PATH` and `HEADER` constants
-- [ ] Implement: `save`, `findAll`, `findById`, `update`, `deleteById`
-- [ ] Add: `boolean existsByNid(String nid)` — iterate `findAll()`, check `nidOrPassport` field
+- [x] Create `class GuestRepository`
+- [x] Define `FILE_PATH` and `HEADER` constants
+- [x] Implement: `save`, `findAll`, `findById`, `update`, `deleteById`
+- [x] Add: `boolean existsByNid(String nid)` — iterate `findAll()`, check `nidOrPassport` field
 
 ---
 
@@ -225,12 +225,12 @@ Connect the model to CSV files. After this phase, data survives application rest
 
 **File:** `com/hotel/repository/BookingRepository.java`
 
-- [ ] Create `class BookingRepository`
-- [ ] Define `FILE_PATH` and `HEADER` constants
-- [ ] Implement: `save`, `findAll`, `findById`, `update`, `deleteById`
-- [ ] Add: `boolean hasActiveBookingForRoom(String roomId)`
+- [x] Create `class BookingRepository`
+- [x] Define `FILE_PATH` and `HEADER` constants
+- [x] Implement: `save`, `findAll`, `findById`, `update`, `deleteById`
+- [x] Add: `boolean hasActiveBookingForRoom(String roomId)`
   - Iterate `findAll()`, return `true` if any booking matches `roomId` AND `status.equals("ACTIVE")`
-- [ ] Add: `boolean hasActiveBookingForGuest(String guestId)`
+- [x] Add: `boolean hasActiveBookingForGuest(String guestId)`
   - Same logic but match on `guestId`
 
 → **Test:** Create a booking, check `hasActiveBookingForRoom()` returns `true`. Cancel it, check it returns `false`.
