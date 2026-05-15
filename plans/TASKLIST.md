@@ -248,36 +248,36 @@ Services sit between UI and repositories. They validate input, enforce business 
 **File:** `com/hotel/service/RoomService.java`
 **Implements:** `Manageable<Room>`
 
-- [ ] Declare field: `private RoomRepository roomRepository`
-- [ ] Declare field: `private BookingRepository bookingRepository`
-- [ ] Constructor: initialise both repositories
+- [x] Declare field: `private RoomRepository roomRepository`
+- [x] Declare field: `private BookingRepository bookingRepository`
+- [x] Constructor: initialise both repositories
 
 **Implement add(Room room):**
-- [ ] Validate room number is not empty
-- [ ] Validate price > 0
-- [ ] Call `roomRepository.existsByRoomNumber()` → throw `DuplicateRecordException` if true
-- [ ] Call `roomRepository.save(room)`
+- [x] Validate room number is not empty
+- [x] Validate price > 0
+- [x] Call `roomRepository.existsByRoomNumber()` → throw `DuplicateRecordException` if true
+- [x] Call `roomRepository.save(room)`
 
 **Implement getAll():**
-- [ ] Delegate to `roomRepository.findAll()`
+- [x] Delegate to `roomRepository.findAll()`
 
 **Implement getById(String id):**
-- [ ] Call `roomRepository.findById(id)`
-- [ ] If result is `null` → throw `RecordNotFoundException("Room not found: " + id)`
-- [ ] Return result
+- [x] Call `roomRepository.findById(id)`
+- [x] If result is `null` → throw `RecordNotFoundException("Room not found: " + id)`
+- [x] Return result
 
 **Implement update(Room room):**
-- [ ] Validate price > 0
-- [ ] Delegate to `roomRepository.update(room)`
+- [x] Validate price > 0
+- [x] Delegate to `roomRepository.update(room)`
 
 **Implement delete(String id):**
-- [ ] Call `bookingRepository.hasActiveBookingForRoom(id)`
-- [ ] If true → throw `HotelException("Cannot delete: room has an active booking")`
-- [ ] Otherwise call `roomRepository.deleteById(id)`
+- [x] Call `bookingRepository.hasActiveBookingForRoom(id)`
+- [x] If true → throw `HotelException("Cannot delete: room has an active booking")`
+- [x] Otherwise call `roomRepository.deleteById(id)`
 
 **Add setAvailability:**
-- [ ] `public void setAvailability(String roomId, boolean status)`
-- [ ] Get room by ID, set `isAvailable`, call `update(room)`
+- [x] `public void setAvailability(String roomId, boolean status)`
+- [x] Get room by ID, set `isAvailable`, call `update(room)`
 
 ---
 
@@ -286,23 +286,23 @@ Services sit between UI and repositories. They validate input, enforce business 
 **File:** `com/hotel/service/GuestService.java`
 **Implements:** `Manageable<Guest>`
 
-- [ ] Declare field: `private GuestRepository guestRepository`
-- [ ] Declare field: `private BookingRepository bookingRepository`
+- [x] Declare field: `private GuestRepository guestRepository`
+- [x] Declare field: `private BookingRepository bookingRepository`
 
 **Implement add(Guest guest):**
-- [ ] Validate `fullName` is not empty and contains only letters and spaces
-- [ ] Validate `phone` is exactly 11 digits and starts with `01`
-- [ ] Validate `nidOrPassport` is not empty
-- [ ] Call `guestRepository.existsByNid()` → throw `DuplicateRecordException` if true
-- [ ] Call `guestRepository.save(guest)`
+- [x] Validate `fullName` is not empty and contains only letters and spaces
+- [x] Validate `phone` is exactly 11 digits and starts with `01`
+- [x] Validate `nidOrPassport` is not empty
+- [x] Call `guestRepository.existsByNid()` → throw `DuplicateRecordException` if true
+- [x] Call `guestRepository.save(guest)`
 
 **Implement getAll, getById, update:**
-- [ ] Delegate to repository (same pattern as RoomService)
+- [x] Delegate to repository (same pattern as RoomService)
 
 **Implement delete(String id):**
-- [ ] Check `bookingRepository.hasActiveBookingForGuest(id)`
-- [ ] If true → throw `HotelException("Cannot delete: guest has an active booking")`
-- [ ] Otherwise call `guestRepository.deleteById(id)`
+- [x] Check `bookingRepository.hasActiveBookingForGuest(id)`
+- [x] If true → throw `HotelException("Cannot delete: guest has an active booking")`
+- [x] Otherwise call `guestRepository.deleteById(id)`
 
 ---
 
@@ -311,33 +311,33 @@ Services sit between UI and repositories. They validate input, enforce business 
 **File:** `com/hotel/service/BookingService.java`
 **Implements:** `Manageable<Booking>`
 
-- [ ] Declare fields: `bookingRepository`, `roomService`
+- [x] Declare fields: `bookingRepository`, `roomService`
 
 **Implement add(Booking booking):**
-- [ ] Validate `checkInDate` is not in the past
-- [ ] Validate `checkOutDate` is after `checkInDate`
-- [ ] Get room via `roomService.getById(roomId)`
-- [ ] If `!room.isAvailable()` → throw `RoomNotAvailableException("Room is not available")`
-- [ ] Calculate `nights = calculateNights(checkIn, checkOut)`
-- [ ] Set `booking.totalBill = nights * room.getPricePerNight()`
-- [ ] Set `booking.status = "ACTIVE"`
-- [ ] Call `bookingRepository.save(booking)`
-- [ ] Call `roomService.setAvailability(roomId, false)`
+- [x] Validate `checkInDate` is not in the past
+- [x] Validate `checkOutDate` is after `checkInDate`
+- [x] Get room via `roomService.getById(roomId)`
+- [x] If `!room.isAvailable()` → throw `RoomNotAvailableException("Room is not available")`
+- [x] Calculate `nights = calculateNights(checkIn, checkOut)`
+- [x] Set `booking.totalBill = nights * room.getPricePerNight()`
+- [x] Set `booking.status = "ACTIVE"`
+- [x] Call `bookingRepository.save(booking)`
+- [x] Call `roomService.setAvailability(roomId, false)`
 
 **Implement getAll, getById, update:**
-- [ ] Delegate to repository
+- [x] Delegate to repository
 
 **Add cancelBooking:**
-- [ ] `public void cancelBooking(String bookingId)`
-- [ ] Find booking — throw `RecordNotFoundException` if missing
-- [ ] If `status` is already `"CANCELLED"` → throw `HotelException("Booking already cancelled")`
-- [ ] Set `status = "CANCELLED"`, call `bookingRepository.update(booking)`
-- [ ] Call `roomService.setAvailability(booking.getRoomId(), true)`
+- [x] `public void cancelBooking(String bookingId)`
+- [x] Find booking — throw `RecordNotFoundException` if missing
+- [x] If `status` is already `"CANCELLED"` → throw `HotelException("Booking already cancelled")`
+- [x] Set `status = "CANCELLED"`, call `bookingRepository.update(booking)`
+- [x] Call `roomService.setAvailability(booking.getRoomId(), true)`
 
 **Add helper:**
-- [ ] `private long calculateNights(String checkIn, String checkOut)`
-- [ ] Parse both dates using `LocalDate.parse()`
-- [ ] Return `ChronoUnit.DAYS.between(checkIn, checkOut)`
+- [x] `private long calculateNights(String checkIn, String checkOut)`
+- [x] Parse both dates using `LocalDate.parse()`
+- [x] Return `ChronoUnit.DAYS.between(checkIn, checkOut)`
 
 → **Test:** Try to book the same room twice while first booking is ACTIVE → second attempt must throw `RoomNotAvailableException`.
 
@@ -482,12 +482,12 @@ Centralise all validation logic so it is reusable across all service classes.
 
 **File:** `com/hotel/util/InputValidator.java`
 
-- [ ] `public static boolean isNotEmpty(String value)` — returns `!value.trim().isEmpty()`
-- [ ] `public static boolean isValidPhone(String phone)` — 11 digits, starts with `01`
-- [ ] `public static boolean isPositiveNumber(String value)` — parseable as double and > 0
-- [ ] `public static boolean isValidDate(String date)` — matches format `YYYY-MM-DD`, parseable by `LocalDate.parse()`
-- [ ] `public static boolean isDateAfter(String dateA, String dateB)` — `A` is strictly after `B`
-- [ ] `public static boolean isTodayOrFuture(String date)` — date is ≥ today using `LocalDate.now()`
+- [x] `public static boolean isNotEmpty(String value)` — returns `!value.trim().isEmpty()`
+- [x] `public static boolean isValidPhone(String phone)` — 11 digits, starts with `01`
+- [x] `public static boolean isPositiveNumber(String value)` — parseable as double and > 0
+- [x] `public static boolean isValidDate(String date)` — matches format `YYYY-MM-DD`, parseable by `LocalDate.parse()`
+- [x] `public static boolean isDateAfter(String dateA, String dateB)` — `A` is strictly after `B`
+- [x] `public static boolean isTodayOrFuture(String date)` — date is ≥ today using `LocalDate.now()`
 
 > ⚠ All methods return `boolean` and throw nothing. Services call these and throw `InvalidInputException` themselves with specific messages.
 
